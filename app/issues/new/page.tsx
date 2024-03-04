@@ -4,7 +4,7 @@ import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
-import { Button, CalloutRoot, CalloutText, Text, TextArea, TextFieldInput, TextFieldRoot } from "@radix-ui/themes"
+import { Button, CalloutRoot, CalloutText, TextFieldInput, TextFieldRoot } from "@radix-ui/themes"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";

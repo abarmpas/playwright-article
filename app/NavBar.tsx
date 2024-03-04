@@ -4,14 +4,15 @@ import Link from "next/link"
 import { usePathname } from "next/navigation";
 import React from "react"
 import { AiFillBug } from "react-icons/ai";
-import classnames from "classnames"
+import classnames from "classnames";
+import { logout } from "./lib/actions";
 
 const NavBar = () => {
 
     const activePath = usePathname()
 
     const links = [
-        { href: '/', label: 'Dashboard'},
+        { href: '/home', label: 'Dashboard'},
         { href: '/issues', label: 'Issues'},
     ]
 
@@ -27,6 +28,14 @@ const NavBar = () => {
                 })}
                 href={link.href}>{link.label}</Link>)}
             </ul>
+            { activePath !== '/login' ? 
+            <form
+                action={logout}
+            >
+                <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
+                    <div className="hidden md:block">Sign Out</div>
+                </button>
+            </form> : false}
         </nav>
     )
 }
