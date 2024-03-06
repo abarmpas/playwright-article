@@ -1,75 +1,17 @@
 'use client'
 
-import Link from "next/link"
-import React, { useEffect, useState } from "react"
-import { Button, DropdownMenu, Table } from "@radix-ui/themes"
-import { AiOutlineArrowDown } from "react-icons/ai";
-import axios from "axios";
-import { UserTable } from "../types/userTable";
+import React from 'react';
 
-const Home = () => {
-    const [users, setUsers] = useState<UserTable[]>([]);
-
-    useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const response = await axios.get<UserTable[]>('/api/users');
-                console.log(response)
-                setUsers(response.data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        fetchUsers();
-    }, []);
-
+const HomePage = () => {
     return (
-        <nav className="w-3/4">
-            <div className="flex w-full justify-between mb-3">
-                <DropdownMenu.Root>
-                    <DropdownMenu.Trigger>
-                    <Button variant="soft">
-                        Options
-                        <AiOutlineArrowDown width="12" height="12" />
-                    </Button>
-                    </DropdownMenu.Trigger>
-                    <DropdownMenu.Content variant="solid">
-                    <DropdownMenu.Item shortcut="⌘ E">Edit</DropdownMenu.Item>
-                    <DropdownMenu.Item shortcut="⌘ D">Duplicate</DropdownMenu.Item>
-                    <DropdownMenu.Separator />
-                    <DropdownMenu.Item shortcut="⌘ N">Archive</DropdownMenu.Item>
+        <div className="container mx-auto px-4 py-8">
+            <h1 className="text-3xl font-bold mb-4">Playwright Article</h1>
+            <p className="text-lg mb-4">
+                Welcome to the Playwright Article! This article will guide you through the process of initializing Playwright for browser automation testing. Learn how to set up your environment and get started with Playwright. Stay tuned for more details!
+            </p>
+            <p className="text-lg">Created by A. Barmpas</p>
+        </div>
+    );
+};
 
-                    <DropdownMenu.Separator />
-                    <DropdownMenu.Item shortcut="⌘ ⌫" color="red">
-                        Delete
-                    </DropdownMenu.Item>
-                    </DropdownMenu.Content>
-                </DropdownMenu.Root>
-
-            </div>
-            <Table.Root variant="surface" id="users-table">
-                <Table.Header>
-                    <Table.Row>
-                        <Table.ColumnHeaderCell>Name</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell>Email</Table.ColumnHeaderCell>
-                    </Table.Row>
-                </Table.Header>
-
-                <Table.Body>
-                    {users.map((user) => (
-                        <Table.Row key={user?.id} id="user-row">
-                            <Table.RowHeaderCell id="name">
-                                <Link href={`/issues/${user?.id}`}>{user?.name}</Link>
-                            </Table.RowHeaderCell>
-                            <Table.Cell id="email">{user?.email}</Table.Cell>
-                            
-                        </Table.Row>   
-                    ))}
-                </Table.Body>
-            </Table.Root>
-        </nav>
-    )
-}
-
-export default Home
+export default HomePage;

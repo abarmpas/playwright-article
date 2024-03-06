@@ -14,10 +14,10 @@ export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
  
   return (
-    <form action={dispatch} className="space-y-3">
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-        <h1 className={`mb-3 text-2xl`}>
-          Please log in to continue.
+    <form action={dispatch} className="space-y-3 w-1/3">
+      <div className="bg-white rounded-lg p-6 shadow-md">
+        <h1 className="text-2xl font-bold mb-4 text-center">
+          Login
         </h1>
         <div className="w-full mb-4">
           <div>
@@ -82,7 +82,7 @@ function LoginButton() {
   const { pending } = useFormStatus();
  
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending}>
+    <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"    aria-disabled={pending}>
       Log in <HiArrowRight className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );

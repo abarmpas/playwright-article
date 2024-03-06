@@ -25,9 +25,18 @@ export default function IssuePage({
         }, []);
 
     return (
-        <div id={`${issue?.id}`} style={{ height: '100vh', padding: 50 }}>
-          <h1 style={{ color: 'red' }}>Title: {issue?.title}</h1>
-          <p>Description: {issue?.status}</p>
+        <div id={`${issue?.id}`} className="bg-blue-100 rounded-lg p-6 shadow-md">
+          <h1 className="text-xl font-bold mb-2">{issue?.title}</h1>
+          <div className="flex items-center mb-2">
+                <span className="text-gray-600 mr-2">Status:</span>
+                <span className={`px-2 py-1 rounded ${issue?.status === 'OPEN' ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'}`}>
+                  {issue?.status}
+                </span>
+          </div>
+          <div className="flex items-center">
+                <span className="text-gray-600 mr-2">Created At:</span>
+                <span>{issue?.createdAt}</span>
+          </div>
         </div>
       );
 }

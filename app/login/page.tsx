@@ -2,15 +2,11 @@ import LoginForm from "../ui/login-form";
 
  export default function LoginPage() {
   return (
-    <main className="flex items-center justify-center md:h-screen">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
-        <div className="flex h-20 w-full items-center rounded-lg bg-blue-500 p-3 md:h-36">
-          <div className="w-full text-white text-center">
-            Playwright Article
-          </div>
-        </div>
-        <LoginForm />
+    <main className="flex flex-col items-center justify-center bg-gray-100 rounded-lg p-6 shadow-md">
+      <div className="mb-12">
+        <h1 className="text-3xl font-bold mb-4">Playwright Article</h1>
       </div>
+      <LoginForm />
     </main>
   );
 }
