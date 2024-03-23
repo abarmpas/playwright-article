@@ -1,7 +1,9 @@
 import { test } from '../fixtures/base.fixture';
 
+export const adminStorageState = 'playwright/auth/adminStorageState.json';
+
 export const loginAsAdmin = () => {
-    test.use({ locale: 'en-US' });
+  test.use({ storageState: adminStorageState });
 };
 
 export const resetStorageState = () => {

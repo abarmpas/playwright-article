@@ -20,10 +20,6 @@ test.describe('User login', () => {
       await loginPage.goToHome();
     });
 
-    // await test.step('WHEN: I click "Logout"', async () => {
-    //   await loginPage.logout();
-    // });
-
     await test.step('THEN: I land on Login page', async () => {
       await verifyIsVisible(loginPage.logoutButton);
     });

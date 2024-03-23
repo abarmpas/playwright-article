@@ -59,9 +59,9 @@ const UsersPage = () => {
                 <Table.Body>
                     {users.map((user) => (
                         <Table.Row key={user?.id} id="user-row">
-                            <Table.RowHeaderCell id="name">
+                            <Table.Cell id="name">
                                 <Link href={`/users/${user?.id}`}>{user?.name}</Link>
-                            </Table.RowHeaderCell>
+                            </Table.Cell>
                             <Table.Cell id="email">{user?.email}</Table.Cell>
                             
                         </Table.Row>   
