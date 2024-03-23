@@ -3,11 +3,13 @@ import { test as base } from '@playwright/test';
 import { LoginPage } from '../pages/Login.page';
 // import { EmployeeDetailsPage } from '@pages/EmployeeDetails.page';
 import { ArticleBasePage } from '../pages/base/ArticleBase.page';
+import { UsersPage } from '../pages/Users.page';
+import { UserDetailsPage } from '../pages/UserDetails.page';
 
 type PageFixtures = {
   loginPage: LoginPage;
-//   employeesPage: EmployeesPage;
-//   employeeDetailsPage: EmployeeDetailsPage;
+  usersPage: UsersPage;
+  userDetailsPage: UserDetailsPage;
   basePage: ArticleBasePage;
 };
 
@@ -16,13 +18,13 @@ export const test = base.extend<PageFixtures>({
     await use(new LoginPage(page));
   },
 
-//   employeeDetailsPage: async ({ page }, use) => {
-//     await use(new EmployeeDetailsPage(page));
-//   },
+  userDetailsPage: async ({ page }, use) => {
+    await use(new UserDetailsPage(page));
+  },
 
-//   employeesPage: async ({ page }, use) => {
-//     await use(new EmployeesPage(page));
-//   },
+  usersPage: async ({ page }, use) => {
+    await use(new UsersPage(page));
+  },
 
   basePage: async ({ page }, use) => {
     await use(new ArticleBasePage(page));
