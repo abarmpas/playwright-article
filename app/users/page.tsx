@@ -62,8 +62,9 @@ const UsersPage = () => {
                             <Table.Cell id="name">
                                 <Link href={`/users/${user?.id}`}>{user?.name}</Link>
                             </Table.Cell>
-                            <Table.Cell id="email">{user?.email}</Table.Cell>
-                            
+                            <Table.Cell id="email">
+                                <Link href={`/users/${user?.id}`} className="w-full">{user?.email}</Link>
+                            </Table.Cell>
                         </Table.Row>   
                     ))}
                 </Table.Body>
