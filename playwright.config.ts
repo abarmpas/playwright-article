@@ -18,7 +18,7 @@ const getWebServers = () => {
   return [
     {
       command: `npm run ${process.env.TEST_ENVIRONMENT || 'dev'}`,
-      url: 'http://localhost:3000',
+      url: 'http://localhost:3000/home',
       timeout: 180 * 1000,
       reuseExistingServer: !process.env.CI,
     },
@@ -29,10 +29,7 @@ const getWebServers = () => {
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir:
-    process.env.E2E === 'true'
-      ? './playwright/tests/e2e'
-      : './playwright/tests/integration',
+  testDir: './playwright/tests/e2e',
   /* Maximum time one test can run for. */
   timeout: 180 * 1000,
   expect: {
@@ -57,14 +54,14 @@ export default defineConfig({
       { outputFolder: 'playwright/reports/test-reports', open: 'never' },
     ],
     ['list'],
-    [
-      'allure-playwright',
-      {
-        detail: false,
-        outputFolder: 'playwright/reports/allure-results',
-        suiteTitle: false,
-      },
-    ],
+    // [
+    //   'allure-playwright',
+    //   {
+    //     detail: false,
+    //     outputFolder: 'playwright/reports/allure-results',
+    //     suiteTitle: false,
+    //   },
+    // ],
     process.env.CI
       ? ['blob']
       : [

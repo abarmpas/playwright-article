@@ -82,7 +82,7 @@ function LoginButton() {
   const { pending } = useFormStatus();
  
   return (
-    <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"    aria-disabled={pending}>
+    <Button id='login-btn' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"    aria-disabled={pending}>
       Log in <HiArrowRight className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
