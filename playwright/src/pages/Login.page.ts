@@ -13,7 +13,5 @@ export class LoginPage extends ArticleBasePage {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.signInButton.click();
-    await expect(this.usernameInput).toBeEmpty();
-    return this;
   }
 }

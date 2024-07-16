@@ -1,4 +1,4 @@
-import { test } from '../../src/fixtures/base.fixture';
+import { expect, test } from '../../src/fixtures/base.fixture';
 import { verifyIsVisible } from '../../src/utils/verifications';
 import { resetStorageState } from '../../src/utils/loginUtils';
 
@@ -17,6 +17,7 @@ test.describe('User login', () => {
   }) => {
     await test.step('WHEN: I attempt to login with valid credentials', async () => {
       await loginPage.login(users.username, users.password);
+      await expect(loginPage.usernameInput).toBeEmpty();
       await loginPage.goToHome();
     });
 
@@ -25,22 +26,21 @@ test.describe('User login', () => {
     });
   });
 
-//   test('should not login with invalid credentials', async ({
-//     loginPage,
-//     users,
-//   }) => {
-//     await test.step('WHEN: I attempt to login with invalid credentials', async () => {
-//       const { username } = users.hrworkerUser;
-//       const invalidPassword = 'admin123';
-//       await loginPage.login(username, invalidPassword);
-//     });
+  test('should not login with invalid credentials', async ({
+    loginPage,
+  }) => {
+    await test.step('WHEN: I attempt to login with invalid credentials', async () => {
+      const invalidUsername = 'invalid-user';
+      const invalidPassword = 'invalid-password';
+      await loginPage.login(invalidUsername, invalidPassword);
+    });
 
-//     await test.step('THEN: I get a failed log in message', async () => {
-//       await verifyIsVisible(loginPage.failedLoginMessage);
-//     });
+    await test.step('THEN: I cannot navigate to other pages', async () => {
+      await loginPage.goToHome();
+    });
 
-//     await test.step('AND: I remain in login page', async () => {
-//       await verifyIsVisible(loginPage.signInButton);
-//     });
-//   });
+    await test.step('AND: I remain in login page', async () => {
+      await verifyIsVisible(loginPage.signInButton);
+    });
+  });
 });

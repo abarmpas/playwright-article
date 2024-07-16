@@ -5,12 +5,14 @@ import { LoginPage } from '../pages/Login.page';
 import { ArticleBasePage } from '../pages/base/ArticleBase.page';
 import { UsersPage } from '../pages/Users.page';
 import { UserDetailsPage } from '../pages/UserDetails.page';
+import { IssuesPage } from '../pages/Issues.page';
 
 type PageFixtures = {
   loginPage: LoginPage;
   usersPage: UsersPage;
   userDetailsPage: UserDetailsPage;
   basePage: ArticleBasePage;
+  issuesPage: IssuesPage;
 };
 
 export const test = base.extend<PageFixtures>({
@@ -24,6 +26,10 @@ export const test = base.extend<PageFixtures>({
 
   usersPage: async ({ page }, use) => {
     await use(new UsersPage(page));
+  },
+
+  issuesPage: async ({ page }, use) => {
+    await use(new IssuesPage(page));
   },
 
   basePage: async ({ page }, use) => {

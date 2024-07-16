@@ -10,14 +10,6 @@ export class UsersTableComponent extends TableComponent {
     super(page, 'users');
   }
 
-  getValueFromEmployeeCell(cell: AvailableUsersTestIds, rowIndex: number) {
-    /* Use like:
-        - assignedShiftsPage.assignedShiftsTable.getValueFor('shiftId', 0);
-    */
-
-    return this.getCellByTestId(rowIndex, cell as string);
-  }
-
   async getUserByValue(
     value: string,
     column: AvailableUsersTestIds,
