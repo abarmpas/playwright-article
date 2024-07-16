@@ -26,8 +26,8 @@ export default function UserPage({
 
     return (
         <div id={`${user?.id}`} className="bg-gray-100 rounded-lg p-6 shadow-md">
-          <h1 className="text-2xl font-bold mb-2">{user?.name}</h1>
-          <h2 className="text-lg text-gray-600">Email: {user?.email}</h2>
+          <h1 id="username-text" className="text-2xl font-bold mb-2">{user?.name}</h1>
+          <h2 id="email-text" className="text-lg text-gray-600">Email: {user?.email}</h2>
         </div>
       );
 }

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pw:e2e": "TEST_ENVIRONMENT=dev npx playwright test --project=${PW_PROJECT:-chromium}",
+    "pw:e2e:debug": "npm run pw:e2e --debug --workers=1"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",
@@ -18,9 +20,11 @@
     "autoprefixer": "10.4.16",
     "axios": "^1.5.0",
     "classnames": "^2.3.2",
+    "dotenv": "^16.4.5",
     "easymde": "^2.18.0",
     "eslint": "8.53.0",
     "eslint-config-next": "14.0.2",
+    "kafkajs": "^2.2.4",
     "next": "14.0.2",
     "next-auth": "^5.0.0-beta.4",
     "postcss": "8.4.31",
@@ -35,7 +39,10 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.42.1",
     "@types/bcrypt": "^5.0.2",
-    "encoding": "^0.1.13"
+    "encoding": "^0.1.13",
+    "expect-playwright": "^0.8.0"
   }
 }
